@@ -71,7 +71,7 @@
                 <label for="select_produk">Pilih Jenis Kopi</label>
             </div>
 
-            <div id="baris_produk" class="row row-cols-1 row-cols-md-2 row-cols-lg-4" id="row_produk">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4" id="row_produk">
 
 
                 <!-- 
@@ -218,24 +218,26 @@
             }
         ]
 
-        var tamplate = `<div class="col mb-4">
+        data_kopi.forEach(item => {
+            var tamplate = `<div class="col mb-4">
                     <div class="card">
-                        <img src="images/produk/matcha.jpg" class="card-img-top" alt="...">
+                        <img src="${item.foto}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Matcha</h5>
+                            <h5 class="card-title">${item.nama}</h5>
                             <div class="row">
                                 <div class="col berat">
-                                    <i class="bi bi-basket"></i> 1.00 Gram
+                                    <i class="bi bi-basket"></i> ${item.size}
                                 </div>
                                 <div class="col harga">
-                                    Rp. 148.000
+                                    ${item.harga}
                                 </div>
                             </div>
                             <a id="tombol_beli" href="#" class="btn btn-success w-100"><i class="bi bi-cart4"></i>Beli</a>
                         </div>
                     </div>
                 </div>`
-
+        });
+        
         document.querySelector("#baris_produk").innerHTML = tamplate
 
 
